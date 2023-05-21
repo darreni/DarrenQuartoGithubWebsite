@@ -219,11 +219,11 @@ ul.task-list li input[type="checkbox"] {
 <p>These are notes on how I set up a basic website to be published using Github Pages (and with benefit of version control using Github).</p>
 <p>I assume you already are set up with Github and have that linked to VS Code. (If not, search for tutorials on that topic.) I am also assuming you have set up Quarto in VS Code–you can see my notes on that <a href="./QuartoInstallNotes.html">here</a> .</p>
 <p>One important thing to note: For individual users, Github Pages is only for publishing public websites. If you want a private (e.g.&nbsp;password-controlled) website, it is best to use some other hosting service.</p>
-<p>I thank Joshua French for his excellent Youtube guide which helped me with some of these steps: <a href="https://www.youtube.com/watch?v=uimdXPZc40I&amp;list=PLkrJrLs7xfbXcEKhTCKRSr2VXH4yiBeXo&amp;index=4" class="uri">https://www.youtube.com/watch?v=uimdXPZc40I&amp;list=PLkrJrLs7xfbXcEKhTCKRSr2VXH4yiBeXo&amp;index=4</a></p>
+<p>I thank Joshua French for <a href="https://www.youtube.com/watch?v=uimdXPZc40I&amp;list=PLkrJrLs7xfbXcEKhTCKRSr2VXH4yiBeXo&amp;index=4">his excellent Youtube guide</a> which helped me with some of these steps.</p>
 <section id="create-a-quarto-website-project" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-quarto-website-project">Create a Quarto website project</h2>
-<p>In VS Code, execute the <code>Quarto: Create Project</code> command from the command-palette. Choose “Website Project”. Choose the directory on your computer within which the project directory will be created and enter your choice for a name for your website project directory.</p>
-<p>The above will create a set of files for a basic website. The home page is <code>index.qmd</code> and there is also an “about” page in <code>about.qmd</code>. There is also a The <code>_quarto.yml</code> file, which is a configuration file that provides website options and defaults for pages on the site. This can be opened and inspected in VS Code.</p>
+<p>In VS Code, execute the “Quarto: Create Project” command from the command-palette. Choose “Website Project”. Choose the directory on your computer within which the project directory will be created and enter your choice for a name for your website project directory.</p>
+<p>The above will create the directory and a set of files for a basic website. The home page is <code>index.qmd</code> and there is also an “about” page in <code>about.qmd</code>. There is also a <code>_quarto.yml</code> file, which is a configuration file that provides website options and defaults for pages on the site. This can be opened and inspected in VS Code.</p>
 <p>With the <code>index.qmd</code> file open, you can click “Render HTML” (at the upper right) and this should produce an HTML preview of the homepage in the window to the right.</p>
 </section>
 <section id="set-up-correct-render-directory" class="level2">
@@ -236,7 +236,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="create-github-repository" class="level2">
 <h2 class="anchored" data-anchor-id="create-github-repository">Create Github repository</h2>
-<p>Login to your Github account using a web browser, and create a new repository. Give it the same name as your local project directory. You don’t need to initialize with a readme, gitignore, or license. Then choose “uploading an existing file”. Then drag all files in your local project directory (the files created above) into the window. Add brief description (e.g., “initial basic website setup”) and press Commit changes.</p>
+<p>Login to your Github account using a web browser, and create a new repository. Give it the same name as your local project directory. You don’t need to initialize with a readme, gitignore, or license.</p>
+<p>Then choose “uploading an existing file”.</p>
+<p>Then drag all files in your local project directory (the files created above) into the window.</p>
+<p>Add brief description (e.g., “initial basic website setup”) and press Commit changes.</p>
 <p>Click Settings (upper right), then Pages (along left).</p>
 <p>Under Branch, select Main.</p>
 <p>Change “/root” folder to “/docs”, then press Save.</p>
@@ -244,8 +247,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="set-up-link-between-local-and-github-directories" class="level2">
 <h2 class="anchored" data-anchor-id="set-up-link-between-local-and-github-directories">Set up link between local and Github directories</h2>
-<p>To set up to render and sync local folder to Github repo, then you still need to link the full local folder to the Github repo. One way to do this (worked for me) was: On VS Code welcome page, choose “Clone Git Repository”, then choose the name of the Github repo, then choose the local project directory, then click on “Select as Repository Destination”.</p>
-<p>Then, the local folder is the same as the Github one, and any changes can be Synchronized.</p>
+<p>To set up to render and sync local folder to Github repo, you still need to link the full local folder to the Github repo. One way to do this is:</p>
+<p>On the VS Code welcome page, choose “Clone Git Repository”, then choose the name of the Github repo, then choose the local project directory, then click on “Select as Repository Destination”.</p>
+<p>Then, the local folder is the same as the Github one, and any changes can be Staged, Committed, and Synchronized (if this doesn’t make sense, search out some tutorials on Git and Github, and working with VS Code in the context of those).</p>
 <p>I don’t know if this is necessary, but I added an empty <code>.nojekyll</code> to my project directory, as recommended here: <a href="https://quarto.org/docs/publishing/github-pages.html" class="uri">https://quarto.org/docs/publishing/github-pages.html</a> . This tells Github not to do any additional processing of the published site</p>
 <p>An easy way to do the above: In Terminal window (at base of VS Code window), in your project directory: type “touch .nojekyll” which creates an empty file.</p>
 
