@@ -54,5 +54,54 @@
     "title": "Quarto Installation Notes",
     "section": "Demo plot produced by Julia in Quarto",
     "text": "Demo plot produced by Julia in Quarto\nPlot function pair (x(u), y(u)). See Figure 1 for an example.\nUnicode test: α  β (To get those in Julia REPL, type \\alpha then tab, or \\beta then tab)\n\n\nCode\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots\n\n\n\nThe code for the example plot above came from the Quarto website: https://quarto.org/docs/computations/julia.html"
+  },
+  {
+    "objectID": "UsingGithubPagesWithQuarto.html",
+    "href": "UsingGithubPagesWithQuarto.html",
+    "title": "Publish with Github Pages",
+    "section": "",
+    "text": "These are notes on how I set up a basic website to be published using Github Pages (and with benefit of version control using Github).\nI assume you already are set up with Github and have that linked to VS Code. (If not, search for tutorials on that topic.) I am also assuming you have set up Quarto in VS Code–you can see my notes on that here .\nOne important thing to note: For individual users, Github Pages is only for publishing public websites. If you want a private (e.g. password-controlled) website, it is best to use some other hosting service.\nI thank Joshua French for his excellent Youtube guide which helped me with some of these steps: https://www.youtube.com/watch?v=uimdXPZc40I&list=PLkrJrLs7xfbXcEKhTCKRSr2VXH4yiBeXo&index=4"
+  },
+  {
+    "objectID": "UsingGithubPagesWithQuarto.html#create-a-quarto-website-project",
+    "href": "UsingGithubPagesWithQuarto.html#create-a-quarto-website-project",
+    "title": "Publish with Github Pages",
+    "section": "Create a Quarto website project",
+    "text": "Create a Quarto website project\nIn VS Code, execute the Quarto: Create Project command from the command-palette. Choose “Website Project”. Choose the directory on your computer within which the project directory will be created and enter your choice for a name for your website project directory.\nThe above will create a set of files for a basic website. The home page is index.qmd and there is also an “about” page in about.qmd. There is also a The _quarto.yml file, which is a configuration file that provides website options and defaults for pages on the site. This can be opened and inspected in VS Code.\nWith the index.qmd file open, you can click “Render HTML” (at the upper right) and this should produce an HTML preview of the homepage in the window to the right."
+  },
+  {
+    "objectID": "UsingGithubPagesWithQuarto.html#set-up-to-publish-via-github-pages",
+    "href": "UsingGithubPagesWithQuarto.html#set-up-to-publish-via-github-pages",
+    "title": "Using Github Pages with Quarto",
+    "section": "Set up to publish via Github Pages",
+    "text": "Set up to publish via Github Pages\nFor working correctly with Github Pages, we need to render to a directory called docs. To do this, add output-dir: docs under the project heading in the _quarto.yml file. This heading section will then look like this:\nproject:\n  type: website\n  output-dir: docs\nSave that and press render, and docs folder should appear in the list of files. You can now delete the _site folder."
+  },
+  {
+    "objectID": "UsingGithubPagesWithQuarto.html#set-up-correct-render-directory",
+    "href": "UsingGithubPagesWithQuarto.html#set-up-correct-render-directory",
+    "title": "Publish with Github Pages",
+    "section": "Set up correct render directory",
+    "text": "Set up correct render directory\nFor working correctly with Github Pages, we need to render to a directory called docs. To do this, add output-dir: docs under the project heading in the _quarto.yml file. This heading section will then look like this:\nproject:\n  type: website\n  output-dir: docs\nSave that and press render, and docs folder should appear in the list of files. You can now delete the _site folder."
+  },
+  {
+    "objectID": "UsingGithubPagesWithQuarto.html#create-github-repository",
+    "href": "UsingGithubPagesWithQuarto.html#create-github-repository",
+    "title": "Publish with Github Pages",
+    "section": "Create Github repository",
+    "text": "Create Github repository\nLogin to your Github account using a web browser, and create a new repository. Give it the same name as your local project directory. You don’t need to initialize with a readme, gitignore, or license. Then choose “uploading an existing file”. Then drag all files in your local project directory (the files created above) into the window. Add brief description (e.g., “initial basic website setup”) and press Commit changes.\nClick Settings (upper right), then Pages (along left).\nUnder Branch, select Main.\nChange “/root” folder to “/docs”, then press Save.\nWait a bit, then refresh page, and see near top that “Your site is live at . . .” You can click that link to visit your new webpage."
+  },
+  {
+    "objectID": "UsingGithubPagesWithQuarto.html#set-up-for-synchronizing-local-and-github-folders",
+    "href": "UsingGithubPagesWithQuarto.html#set-up-for-synchronizing-local-and-github-folders",
+    "title": "Using Github Pages with Quarto",
+    "section": "Set up for synchronizing local and Github folders",
+    "text": "Set up for synchronizing local and Github folders\nTo set up to render and sync local folder to Github repo, then you still need to link the full local folder to the Github repo. One way to do this (worked for me) was: On VS Code welcome page, choose “Clone Git Repository”, then choose the name of the Github repo, then choose the local project directory, then click on “Select as Repository Destination”.\nThen, the local folder is the same as the Github one, and any changes can be Synchronized.\nI don’t know if this is necessary, but I added an empty .nojekyll to my project directory, as recommended here: https://quarto.org/docs/publishing/github-pages.html . This tells Github not to do any additional processing of the published site\nAn easy way to do the above: In Terminal window (at base of VS Code window), in your project directory: type “touch .nojekyll” which creates an empty file."
+  },
+  {
+    "objectID": "UsingGithubPagesWithQuarto.html#set-up-link-between-local-and-github-directories",
+    "href": "UsingGithubPagesWithQuarto.html#set-up-link-between-local-and-github-directories",
+    "title": "Publish with Github Pages",
+    "section": "Set up link between local and Github directories",
+    "text": "Set up link between local and Github directories\nTo set up to render and sync local folder to Github repo, then you still need to link the full local folder to the Github repo. One way to do this (worked for me) was: On VS Code welcome page, choose “Clone Git Repository”, then choose the name of the Github repo, then choose the local project directory, then click on “Select as Repository Destination”.\nThen, the local folder is the same as the Github one, and any changes can be Synchronized.\nI don’t know if this is necessary, but I added an empty .nojekyll to my project directory, as recommended here: https://quarto.org/docs/publishing/github-pages.html . This tells Github not to do any additional processing of the published site\nAn easy way to do the above: In Terminal window (at base of VS Code window), in your project directory: type “touch .nojekyll” which creates an empty file."
   }
 ]

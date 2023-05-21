@@ -21,6 +21,7 @@ website:
       - section: "Quarto"
         contents:
           - QuartoInstallNotes.qmd
+          - UsingGithubPagesWithQuarto.qmd
 
 format:
   html:
