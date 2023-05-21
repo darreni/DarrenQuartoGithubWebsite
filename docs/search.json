@@ -53,6 +53,6 @@
     "href": "QuartoInstallNotes.html#demo-plot-produced-by-julia-in-quarto",
     "title": "Quarto Installation Notes",
     "section": "Demo plot produced by Julia in Quarto",
-    "text": "Demo plot produced by Julia in Quarto\nPlot function pair (x(u), y(u)). See Figure 1 for an example.\nUnicode test: α  β (To get those in Julia REPL, type \\alpha then tab, or \\beta then tab)\n\n\nCode\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots"
+    "text": "Demo plot produced by Julia in Quarto\nPlot function pair (x(u), y(u)). See Figure 1 for an example.\nUnicode test: α  β (To get those in Julia REPL, type \\alpha then tab, or \\beta then tab)\n\n\nCode\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots\n\n\n\nThe code for the example plot above came from the Quarto website: https://quarto.org/docs/computations/julia.html"
   }
 ]

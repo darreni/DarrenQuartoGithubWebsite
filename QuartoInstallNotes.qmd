@@ -200,3 +200,5 @@ plot(sin,
      leg=false, 
      fill=(0,:lavender))
 ```
+
+The code for the example plot above came from the Quarto website: <https://quarto.org/docs/computations/julia.html>
