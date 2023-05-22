@@ -40,6 +40,8 @@ jupyter: julia-1.9
 
 Make sure you give your page an appropriate title in the YAML block, and then add content to this page. When ready, click "Render HTML" and see the rendered version of your page.
 
+(If you have a bunch of `.qmd` files that you have made changes to and you want to render them all--for instance before committing and synchronizing with Github--you can do this in one step by using a Terminal window and typing `quarto render` while in the project directory. This might take some time so be patient and let it complete before continuing. It will not show a preview in VS Code, but the Terminal window will update you about completion.)
+
 ## Add navigation
 
 For adding or modifying navigation features on your website, open the `quarto.yml` file in your project directory. It will look someting like this:
