@@ -1,0 +1,87 @@
+---
+title: "Add pages and navigation"
+author: "Darren Irwin"
+date: "5/21/2023"
+execute:
+  echo: true
+format:
+  pdf:
+    keep-tex: false
+    monofont: "JuliaMono"
+  html:
+    code-fold: true
+jupyter: julia-1.9
+---
+
+Now that you have a basic website, you might want to add pages to it, and a menu for navigation. 
+
+## Add a page
+
+In VS Code, create a new text file and save it with a name ending in `.qmd`. Put a YAML section at the front. You could simply copy it from an existing page, or do something like this which is an example YAML section from this very page you are reading right now:
+
+``` default
+---
+title: "Add pages and navigation"
+author: "Darren Irwin"
+date: "5/21/2023"
+execute:
+  echo: true
+format:
+  pdf:
+    keep-tex: false
+    monofont: "JuliaMono"
+  html:
+    code-fold: true
+jupyter: julia-1.9
+---
+```
+
+(We don't actually need the `jupyter: julia-1.9` line for this page, since no Julia code on it, but I've left it there because your page might have Julia code.)
+
+Make sure you give your page an appropriate title in the YAML block, and then add content to this page. When ready, click "Render HTML" and see the rendered version of your page.
+
+## Add navigation
+
+For adding or modifying navigation features on your website, open the `quarto.yml` file in your project directory. It will look someting like this:
+
+``` default
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "MyQuartoWebsiteName"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+```
+
+If you want to add your new webpage to the top navigation bar, add it to the list under the `left:` heading (i.e., right below `- about.qmd`).
+
+If you want a sidebar listing pages that readers can navigate to, you can add a section like this in the `website` block (e.g., after the `left` block in the YAML): 
+
+``` default
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Basics"
+        contents:
+          - text: "Home"
+            file: index.qmd
+          - about.qmd
+      - section: "Fascinating stuff"
+        contents:
+          - QuartoInstallNotes.qmd
+          - UsingGithubPagesWithQuarto.qmd
+```
+
+To learn more about navigation options, the Quarto website is filled with helpful info: <https://quarto.org/docs/websites/website-navigation.html>

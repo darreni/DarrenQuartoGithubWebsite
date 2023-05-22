@@ -22,6 +22,7 @@ website:
         contents:
           - QuartoInstallNotes.qmd
           - UsingGithubPagesWithQuarto.qmd
+          - AddPagesAndNavigation.qmd
 
 format:
   html:
