@@ -72,6 +72,6 @@ Then, the local folder is the same as the Github one, and any changes can be Sta
 
 I don't know if this is necessary, but I added an empty `.nojekyll` to my project directory, as recommended here: <https://quarto.org/docs/publishing/github-pages.html> . This tells Github not to do any additional processing of the published site
 
-An easy way to do the above: In Terminal window (at base of VS Code window), in your project directory: type “touch .nojekyll” which creates an empty file. 
+An easy way to do the above: In Terminal window (at base of VS Code window), in your project directory: type `touch .nojekyll` which creates an empty file. 
 
 
