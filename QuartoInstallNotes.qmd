@@ -1,5 +1,5 @@
 ---
-title: "Quarto Installation Notes"
+title: "Install Quarto for Julia"
 author: "Darren Irwin"
 date: "5/13/2023"
 execute:
