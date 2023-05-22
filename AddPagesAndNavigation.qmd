@@ -64,7 +64,11 @@ format:
     toc: true
 ```
 
+#### Add webpage to navigation bar
+
 If you want to add your new webpage to the top navigation bar, add it to the list under the `left:` heading (i.e., right below `- about.qmd`).
+
+#### Add sidebar navigation menu
 
 If you want a sidebar listing pages that readers can navigate to, you can add a section like this in the `website` block (e.g., after the `left` block in the YAML): 
 
@@ -83,5 +87,15 @@ If you want a sidebar listing pages that readers can navigate to, you can add a 
           - QuartoInstallNotes.qmd
           - UsingGithubPagesWithQuarto.qmd
 ```
+
+#### Navigation arrows
+
+If you want the bottom of the page to show navigation arrows to the previous and next web page in your series, add `page-navigation: true` under the `website` heading of the `quarto.yml` file.
+
+#### Page footer
+
+You can add a common footer to all the pages in your website. For instance, add `page-footer: "Here's my footer text"` under the `website` heading of the `quarto.yml` file. You can also designate `left`, `right`, and `center` regions of the footer and add links to other sites. 
+
+#### Learn more
 
 To learn more about navigation options, the Quarto website is filled with helpful info: <https://quarto.org/docs/websites/website-navigation.html>

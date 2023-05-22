@@ -4,6 +4,7 @@ project:
 
 website:
   title: "DarrenQuartoGithubWebsite"
+  page-navigation: true
   navbar:
     left:
       - href: index.qmd
@@ -23,6 +24,7 @@ website:
           - QuartoInstallNotes.qmd
           - UsingGithubPagesWithQuarto.qmd
           - AddPagesAndNavigation.qmd
+  page-footer: "Copyright 2023, Darren Irwin" 
 
 format:
   html:
