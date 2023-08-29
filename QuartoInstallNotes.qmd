@@ -127,6 +127,8 @@ This font works well with monocode symbols used in Julia (without it, many of th
 
 `brew install --cask font-juliamono`
 
+(If you want to set JuliaMono as your editor font in VS Code, then do this: click on the gear symbol in the lower left, choose Settings, then choose "Editor: Font Family" and replace what is there with "JuliaMono". You will likely need to restart VS Code for the change to take effect. A good way to check is to see if the zero symbol now has a little dot in the middle.)
+
 ## Try a demo Quarto file
 
 OK we are now ready to do a little prayer to the Quarto and Julia gods and try this all out. In VS Code make a new file called `QuartoDemo.qmd`. The `.qmd` ending is important as it tells VS Code this is a Quarto file. Put this in the file:
