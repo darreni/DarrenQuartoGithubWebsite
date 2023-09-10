@@ -15,7 +15,7 @@ jupyter: julia-1.9
 
 These are notes on how I set up Quarto for use with Julia. I am taking these notes both to try out Quarto and to record the steps involved. I hope this will be of use for myself, students, and maybe others.
 
-I am assuming you already have both Julia and Visual Studio Code (i.e., VS Code) installed, with the Julia extension in VS Code. If not, follow the instructions here: <https://code.visualstudio.com/docs/languages/julia> . (Another option is to use some other text editor, but I highly recommend VS Code and assume it below.)
+I am assuming some basic familiarity with Julia and Visual Studio Code (i.e., VS Code). If you don't yet have VS Code installed, you can download and install it from https://code.visualstudio.com . If you don't yet have the Julia extension for VS Code, follow the instructions here: <https://code.visualstudio.com/docs/languages/julia> . (Another option is to use some other text editor, but I highly recommend VS Code and assume it below.)
 
 The following is for MacOS:
 
@@ -35,7 +35,7 @@ If you have no Julia version yet, or do have a version but want to upgrade to th
 
 `juliaup update release`
 
-At the time of writing this, the latest version of Julia is 1.9.0. The version installed on my machine is `1.9.0+0.x64.apple.darwin14`.
+At the time of writing this (updated Sept. 2023), the latest version of Julia is 1.9.3. The version installed on my machine is `1.9.3+0.x64.apple.darwin14`.
 
 If you also want an older version as an option, you can install it using something like `juliaup add 1.8.5`. (Not needed for most users, since newer versions of Julia run older code.)
 
@@ -45,7 +45,7 @@ This is a somewhat lengthy process, because running Quarto relies on several oth
 
 I learned much of the below from: <https://quarto.org/docs/computations/julia.html>
 
-Download and install Quarto from this site: <https://quarto.org/docs/get-started/> . The version I have installed is `Quarto CLI 1.3.353 (Mac OS)`.
+Download and install Quarto from this site: <https://quarto.org/docs/get-started/> . The version I have installed is `Quarto CLI 1.3.450 (Mac OS)`.
 
 Install the Quarto extension for VS Code (using the standard way of choosing extensions in VS Code).
 
@@ -71,7 +71,7 @@ notebook()
 
 Then the computer will ask `install Jupyter via Conda, y/n?` to which you can respond "y".
 
-After some processing, a Jupyter browser window will open. You can choose quit to close, and the Julia prompt returns in the REPL. After this initializing of Jupyter, you don't need to open Jupyter in this way again (Quarto will simply use Jupyter directly).
+After some processing, a Jupyter browser window will open. You then need to click the "Quit" button (in the upper right) to quit Jupyter, and the Julia prompt returns in the REPL (if you are having trouble with that, you can enter ctrl-C in the Julia REPL, and you should see the julia prompt). After this initializing of Jupyter, you don't need to open Jupyter in this way again (Quarto will simply use Jupyter directly).
 
 #### Revise.jl
 
@@ -92,7 +92,7 @@ catch e
 end
 ```
 
-Save the above file as `.julia/config/startup_ijulia.jl` (the dot at the start means this directory is hidden--the computer will probably ask you to confirm that you want to do this).
+Save the above file as `.julia/config/startup_ijulia.jl` (the dot at the start means this directory is hidden--the computer will probably ask you to confirm that you want to do this). If you are new to creating text files in hidden folders, try this: In a terminal window, type `cd ~` to make sure you are in your home directory, then type `cd .julia`, then `ls` and check if a `config` folder is listed. If not, type `mkdir config`. Then type `cd config`. Then, type  `nano startup_ijulia.jl` . A text editor will open, then copy and paste the above code into the editor. Then type ctrl-X and then Y and then return. The file should be saved, which you can confirm by typing `ls` and seeing it listed there. 
 
 #### Jupyter-cache
 
@@ -107,13 +107,13 @@ Conda.add("jupyter-cache")
 
 ## Almost there!
 
-After the above, Quarto is essentially installed and should work well for rendering in HTML or DOCX. However, I found a few more things are needed for a satisfying experience rendering in PDF:
+After the above, Quarto is essentially installed and should work well for rendering in HTML or DOCX. However, I found a few more things are needed for a satisfying experience rendering in PDF (run the following commands from a terminal window):
 
 #### librsvg and BasicTeX
 
 `brew install librsvg homebrew/cask/basictex`
 
-For some reason, the download of this was really slow. Administrator password was then needed, then after a while it finished successfully.
+This will ask for your Administrator password, and takes some time to download and install. If you get an error saying "No developer tools installed, then follow the instructions to do so (for me, it was running the command `xcode-select --install` .)
 
 #### TinyTeX
 
@@ -127,11 +127,11 @@ This font works well with monocode symbols used in Julia (without it, many of th
 
 `brew install --cask font-juliamono`
 
-(If you want to set JuliaMono as your editor font in VS Code, then do this: click on the gear symbol in the lower left, choose Settings, then choose "Editor: Font Family" and replace what is there with "JuliaMono". You will likely need to restart VS Code for the change to take effect. A good way to check is to see if the zero symbol now has a little dot in the middle.)
+(If you want to set JuliaMono as your editor font in VS Code, then do this: click on the gear symbol in the lower left, choose Settings, then choose "Editor: Font Family" and replace what is there with "JuliaMono". You might need to restart VS Code for the change to take effect. A good way to check is to see if the zero symbol now has a little dot in the middle.)
 
 ## Try a demo Quarto file
 
-OK we are now ready to do a little prayer to the Quarto and Julia gods and try this all out. In VS Code make a new file called `QuartoDemo.qmd`. The `.qmd` ending is important as it tells VS Code this is a Quarto file. Put this in the file:
+OK we are now ready to do a little prayer to the Quarto and Julia gods and try this all out. In VS Code make a new file called `QuartoDemo.qmd`. The `.qmd` ending is important as it tells VS Code this is a Quarto file. Put all of this in the file:
 
 ````         
 ---
@@ -197,3 +197,5 @@ plot(sin,
 ```
 
 The code for the example plot above came from the Quarto website: <https://quarto.org/docs/computations/julia.html>
+
+Comment added Sept. 9: After I updated some software, the render wasn't working, saying it couldn't find the Jupyter kernel for Julia-1.9. I fixed this by reinstalling Jupyter, using the terminal command `pip3 install jupyter` .
