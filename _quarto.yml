@@ -19,6 +19,8 @@ website:
           - text: "Home"
             file: index.qmd
           - about.qmd
+          - Rdemo.qmd
+          - PythonDemo.qmd
       - section: "Quarto"
         contents:
           - QuartoInstallNotes.qmd

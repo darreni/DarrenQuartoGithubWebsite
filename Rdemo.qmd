@@ -1,0 +1,10 @@
+---
+title: "Quarto can be used with R"
+---
+
+#### An example R code block
+
+```{r}
+x <- c(3, 5, -1)
+x^2
+```

@@ -1,0 +1,12 @@
+---
+title: "Quarto can be used with Python"
+---
+
+#### An example Python code block:
+
+```{python}
+name = "Kenny"
+favorite_bird = "nuthatch"
+
+print(f"Hi, I'm {name}. My favorite bird is the {favorite_bird}.")
+```
