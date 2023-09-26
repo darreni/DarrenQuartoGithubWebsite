@@ -27,7 +27,7 @@ First, install Juliaup using this command in the Terminal:
 
 `curl -fsSL https://install.julialang.org | sh`
 
-You can then check whether you have installed Julia versions using:
+Pay close attention, as Juliaup might ask you to run a command to add Juliaup to your Path. Do as it says. Then open a new terminal window. You can then check whether you have installed Julia versions using:
 
 `juliaup status`
 
@@ -107,7 +107,15 @@ Conda.add("jupyter-cache")
 
 ## Almost there!
 
-After the above, Quarto is essentially installed and should work well for rendering in HTML or DOCX. However, I found a few more things are needed for a satisfying experience rendering in PDF (run the following commands from a terminal window):
+After the above, Quarto is essentially installed and should work well for rendering in HTML or DOCX. However, I found a few more things are needed for a satisfying experience rendering in PDF. 
+
+If you don't have it yet, you will need to first install the Homebrew package manager for macOS or Linux (see https://brew.sh). Run this in a Terminal window:
+
+```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
+
+If that worked, take a break and grab a beverage of your choice.
+
+Now, run the following in a Terminal window:
 
 #### librsvg and BasicTeX
 
@@ -141,11 +149,11 @@ date: "5/13/2023"
 execute:
   echo: true
 format:
+  html:
+    code-fold: true
   pdf:
     keep-tex: true
     monofont: "JuliaMono"
-  html:
-    code-fold: true
 jupyter: julia-1.9
 ---
 
@@ -172,7 +180,7 @@ plot(sin,
 ```
 ````
 
-Now, click `Render HTML` in the upper right of your VS Code window. The resulting html version of your document may appear as a preview to the right, and the html file is automatically saved. Then try `Render DOCX` for a Word document. Then try `Render PDF` for a PDF. (Check the unicode symbols carefully to see if they are there. I think they should be if the above installations were done.)
+Now, click `Preview` in the upper right of your VS Code window. The resulting html version of your document may appear as a preview to the right, and the html file is automatically saved. Then try the `Render PDF` command (in the Command Pallette, which you open with shift-command-P) for a PDF. (Check the unicode symbols carefully to see if they are there. I think they should be if the above installations were done.)
 
 The rendered document should display the output shown below.
 
